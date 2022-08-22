@@ -6,6 +6,14 @@ function delay(milliseconds) {
     })
 }
 
+function delayError(milliseconds) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject(new Error(`Error after ${milliseconds}ms`))
+        }, milliseconds);
+    })
+}
+
 async function playingWithDelays() {
 
     console.log('Delaying...', new Date())
@@ -22,8 +30,23 @@ async function playingWithDelays() {
 
 }
 
-playingWithDelays().then(result => {
-    console.log(`After 4 seconds: ${result}`);
-})
+async function playingWithErrors(throwSyncError) {
+    try {
+        if (throwSyncError) {
+            throw new Error('This is synchronous error')
+        }
+        await delayError(1000)
+    } catch (err) {
+        console.error(`We have an error: ${err.message}`)
+    } finally {
+        console.log('Done')
+    }
+}
 
-console.log('the rest of the function executes here');
+// playingWithDelays().then(result => {
+//     console.log(`After 4 seconds: ${result}`);
+// })
+
+// console.log('the rest of the function executes here');
+
+playingWithErrors(false)
