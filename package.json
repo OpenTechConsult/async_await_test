@@ -1,0 +1,21 @@
+{
+  "name": "async_await_test",
+  "version": "1.0.0",
+  "description": "a snippet of code to show how the async/await functions work",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenTechConsult/async_await_test.git"
+  },
+  "keywords": [],
+  "author": "Elom Atsou Agboka <opentech.consult@gmail.com> (https://github.com/OpenTechConsult)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OpenTechConsult/async_await_test/issues"
+  },
+  "homepage": "https://github.com/OpenTechConsult/async_await_test#readme"
+}
