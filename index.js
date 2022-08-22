@@ -43,10 +43,32 @@ async function playingWithErrors(throwSyncError) {
     }
 }
 
+async function errorNotCaught() {
+    try {
+        return delayError(1000)
+    } catch (err) {
+        console.error('Error caught by the async function: ' + err.message)
+    }
+}
+
+async function errorCaught() {
+    try {
+        return await delayError(1000)
+    } catch (err) {
+        console.error(`Error caught by the async function: ${err.message}`)
+    }
+}
+
 // playingWithDelays().then(result => {
 //     console.log(`After 4 seconds: ${result}`);
 // })
 
 // console.log('the rest of the function executes here');
 
-playingWithErrors(false)
+// playingWithErrors(false)
+
+// errorNotCaught()
+//     .catch(err => console.error(`Error caught by the caller: ${err.message}`))
+
+errorCaught()
+    .catch(err => console.error(`Error caught by the caller : ${err.message}`))
